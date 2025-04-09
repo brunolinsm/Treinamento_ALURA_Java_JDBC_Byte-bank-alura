@@ -69,9 +69,11 @@ public class ContaService {
     }
 
     private Conta buscarContaPorNumero(Integer numero) {
+        Connection conn = connection.recuperarConexao();
+        contas = new ContaDAO(conn).listar();
         return contas
                 .stream()
-                .filter(c -> c.getNumero() == numero)
+                .filter(c -> c.getNumero().equals(numero))
                 .findFirst()
                 .orElseThrow(() -> new RegraDeNegocioException("Não existe conta cadastrada com esse número!"));
     }
