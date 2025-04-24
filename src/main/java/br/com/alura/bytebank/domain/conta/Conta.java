@@ -10,11 +10,13 @@ public class Conta {
     private Integer numero;
     private BigDecimal saldo;
     private Cliente titular;
+    private Boolean estaAtiva;
 
-    public Conta(Integer numero, Cliente titular, BigDecimal saldo) {
+    public Conta(Integer numero, Cliente titular, BigDecimal saldo, Boolean estaAtivs) {
         this.numero = numero;
         this.titular = titular;
         this.saldo = saldo;
+        this.estaAtiva = estaAtivs;
     }
 
     public boolean possuiSaldo() {
@@ -53,5 +55,9 @@ public class Conta {
 
     public Cliente getTitular() {
         return titular;
+    }
+
+    public Boolean getEstaAtiva() {
+        return estaAtiva;
     }
 }
